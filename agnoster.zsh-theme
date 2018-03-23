@@ -104,15 +104,15 @@ prompt_git() {
       prompt_segment green black
     fi
 
-	  ahead=$(git_commits_ahead)
-		behind=$(git_commits_behind)
-		if [[ "$ahead" -ne 0 && "$behind" -ne 0 ]]; then
-			commits_diff=" ↑$ahead ↓$behind"
-		elif [[ "$ahead" -ne 0 ]]; then
-			commits_diff=" ↑$ahead"
-		elif [[ "$behind" -ne 0 ]]; then
-			commits_diff=" ↓$behind"
-		fi
+    ahead=$(git_commits_ahead 2> /dev/null)
+    behind=$(git_commits_behind 2> /dev/null)
+    if [[ "$ahead" -ne 0 && "$behind" -ne 0 ]]; then
+      commits_diff=" ↑$ahead ↓$behind"
+    elif [[ "$ahead" -ne 0 ]]; then
+      commits_diff=" ↑$ahead"
+    elif [[ "$behind" -ne 0 ]]; then
+      commits_diff=" ↓$behind"
+    fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
@@ -120,7 +120,7 @@ prompt_git() {
       mode=" >M<"
     elif [[ -e "${repo_path}/rebase" || -e "${repo_path}/rebase-apply" || -e "${repo_path}/rebase-merge" || -e "${repo_path}/../.dotest" ]]; then
       mode=" >R>"
-		fi
+    fi
 
     setopt promptsubst
     autoload -Uz vcs_info
