@@ -1,13 +1,41 @@
 #!/bin/sh
 
 IMAGE="docker.io/nvidia/cuda"
-LABEL="10.0-devel"
+TAG="10.0-cudnn7-devel"
 NAME="cuda"
 VOLUMES=(
-    "/etc/passwd"
-    "/etc/group"
     "/home/aalvarez"
+    "/tmp/.X11-unix"
 )
+DEVICES=(
+    "/dev/video*"
+)
+
+while [[ "$1" != "" ]]; do
+    case $1 in
+        -n|--name)
+            shift 1
+            NAME=$1
+        ;;
+        -t|--tag)
+            shift 1
+            TAG=$1
+        ;;
+        -i|--image)
+            shift 1
+            IMAGE=$1
+        ;;
+        *)
+            echo "Unknown argument $0"
+            exit 1
+        ;;
+    esac
+    shift
+done
+
+echo "# NAME  = ${NAME}"
+echo "# IMAGE = ${IMAGE}"
+echo "# TAG   = ${TAG}"
 
 EXISTS=0
 docker ps -a --format "{{.Names}}" | grep "${NAME}" > /dev/null
@@ -26,13 +54,15 @@ if [ $EXISTS -eq 0 ]; then
     for v in ${VOLUMES[@]}; do
         FLAGS="${FLAGS} -v $v:$v"
     done
+    for d in ${DEVICES[@]}; do
+        FLAGS="${FLAGS} --device $d"
+    done
 
-    docker run ${FLAGS} "${IMAGE}:${LABEL}"
+    docker run ${FLAGS} "${IMAGE}:${TAG}"
 elif [ $RUNNING -eq 0 ]; then
     echo "Container ${NAME} already exists, but is stopped"
     docker start -i ${NAME}
 else
     echo "Container ${NAME} is running, attaching a new shell"
     docker exec -ti --privileged ${NAME} bash
-
 fi
