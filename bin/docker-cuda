@@ -1,0 +1,38 @@
+#!/bin/sh
+
+IMAGE="docker.io/nvidia/cuda"
+LABEL="10.0-devel"
+NAME="cuda"
+VOLUMES=(
+    "/etc/passwd"
+    "/etc/group"
+    "/home/aalvarez"
+)
+
+EXISTS=0
+docker ps -a --format "{{.Names}}" | grep "${NAME}" > /dev/null
+if [ $? -eq 0 ]; then
+    EXISTS=1
+fi
+RUNNING=0
+docker ps --format "{{.Names}}" | grep "${NAME}" > /dev/null
+if [ $? -eq 0 ]; then
+    RUNNING=1
+fi
+
+if [ $EXISTS -eq 0 ]; then
+    echo "Deploying new ${NAME}"
+    FLAGS="--privileged --name ${NAME} -ti"
+    for v in ${VOLUMES[@]}; do
+        FLAGS="${FLAGS} -v $v:$v"
+    done
+
+    docker run ${FLAGS} "${IMAGE}:${LABEL}"
+elif [ $RUNNING -eq 0 ]; then
+    echo "Container ${NAME} already exists, but is stopped"
+    docker start -i ${NAME}
+else
+    echo "Container ${NAME} is running, attaching a new shell"
+    docker exec -ti --privileged ${NAME} bash
+
+fi
