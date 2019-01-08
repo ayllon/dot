@@ -58,11 +58,11 @@ if [ $EXISTS -eq 0 ]; then
         FLAGS="${FLAGS} --device $d"
     done
 
-    docker run ${FLAGS} "${IMAGE}:${TAG}"
+    nvidia-docker run ${FLAGS} "${IMAGE}:${TAG}"
 elif [ $RUNNING -eq 0 ]; then
     echo "Container ${NAME} already exists, but is stopped"
-    docker start -i ${NAME}
+    nvidia-docker start -i ${NAME}
 else
     echo "Container ${NAME} is running, attaching a new shell"
-    docker exec -ti --privileged ${NAME} bash
+    nvidia-docker exec -ti --privileged ${NAME} bash
 fi
