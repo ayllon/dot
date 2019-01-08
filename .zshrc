@@ -62,6 +62,7 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,3 +96,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias topcat="/usr/bin/java -jar $HOME/Tools/topcat-full.jar"
+
+which exa > /dev/null
+if [[ $? -eq 0 ]]; then
+    alias ls="exa --git"
+fi
+
