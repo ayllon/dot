@@ -102,3 +102,8 @@ if [[ $? -eq 0 ]]; then
     alias ls="exa --git"
 fi
 
+alias gtree="git log --graph --oneline"
+alias webserver="python -m SimpleHTTPServer 8000 & xdg-open http://localhost:8000; fg"
+
+source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+
