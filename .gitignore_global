@@ -1,2 +1,5 @@
-/.idea
+.autoenv.zsh
+.project
 .pytest_cache
+/.idea
+sanitizer_suppressions.txt

@@ -1,8 +1,13 @@
 [user]
 	email = a.alvarezayllon@gmail.com
-	name = Alejandro Álvarez Ayllón
+	name = Alejandro Alvarez Ayllon
 [credential]
 	helper = "!f() { echo -e \"username=${GIT_USER}\\npassword=${GIT_TOKEN}\"; }; f"
 [core]
 	pager = less -F -X
 	excludesfile = /home/aalvarez/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
