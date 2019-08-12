@@ -103,7 +103,16 @@ if [[ $? -eq 0 ]]; then
 fi
 
 alias gtree="git log --graph --oneline"
-alias webserver="python -m SimpleHTTPServer 8000 & xdg-open http://localhost:8000; fg"
+
+webserver() {
+    if [[ -n "$1" ]]; then
+        python3 -m http.server 8000 --directory "$1"&
+    else
+        python3 -m http.server 8000 &
+    fi
+    xdg-open http://localhost:8000
+    fg
+}
 
 source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
 
