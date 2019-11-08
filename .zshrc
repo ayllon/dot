@@ -62,6 +62,7 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  taskwarrior
   fzf
 )
 
@@ -97,9 +98,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias topcat="/usr/bin/java -jar $HOME/Tools/topcat-full.jar"
 
-which exa > /dev/null
+which exa &> /dev/null
 if [[ $? -eq 0 ]]; then
     alias ls="exa --git"
+fi
+which bat &> /dev/null
+if [[ $? -eq 0 ]]; then
+    alias cat="bat"
+fi
+which xdg-open &> /dev/null
+if [[ $? -eq 0 ]]; then
+    alias open="xdg-open"
 fi
 
 alias gtree="git log --graph --oneline"
@@ -110,6 +119,7 @@ webserver() {
     else
         python3 -m http.server 8000 &
     fi
+    sleep 2
     xdg-open http://localhost:8000
     fg
 }
