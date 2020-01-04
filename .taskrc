@@ -30,7 +30,7 @@ include ~/.dot/task/holiday.fr-CH.2020.rc
 #include /usr/share/task/dark-yellow-green.theme
 #include /usr/share/task/dark-gray-256.theme
 #include /usr/share/task/dark-gray-blue-256.theme
-#include /usr/share/task/solarized-dark-256.theme
+include /usr/share/task/solarized-dark-256.theme
 #include /usr/share/task/solarized-light-256.theme
 #include /usr/share/task/no-color.theme
 
