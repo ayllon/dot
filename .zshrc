@@ -104,7 +104,7 @@ if [[ $? -eq 0 ]]; then
 fi
 which bat &> /dev/null
 if [[ $? -eq 0 ]]; then
-    alias cat="bat"
+    alias cat="bat --style=plain"
 fi
 which xdg-open &> /dev/null
 if [[ $? -eq 0 ]]; then
