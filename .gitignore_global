@@ -2,4 +2,5 @@
 .project
 .pytest_cache
 /.idea
+/InstallArea
 sanitizer_suppressions.txt
