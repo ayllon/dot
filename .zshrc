@@ -96,7 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias topcat="/usr/bin/java -jar $HOME/Tools/topcat-full.jar"
+JAVA_BIN="/home/aalvarez/Tools/clion/jbr/bin/java"
+if [ ! -f ${JAVA_BIN} ]; then
+    JAVA_BIN=$(which java)
+fi
+alias topcat="${JAVA_BIN} -jar $HOME/Tools/topcat-full.jar"
 
 which exa &> /dev/null
 if [[ $? -eq 0 ]]; then
