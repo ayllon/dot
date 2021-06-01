@@ -42,8 +42,8 @@ fi
 export BINARY_TAG="${ARCH}-${DIST}${VERSION_ID}-${CC_ID}${CC_VERSION}-${BUILD_TYPE}"
 
 # Location of Elements and project
-export CMAKE_PREFIX_PATH=/home/aalvarez/Work/Projects/Elements/5.12/cmake
 export CMAKE_PROJECT_PATH=/home/aalvarez/Work/Projects
+export CMAKE_PREFIX_PATH="${CMAKE_PROJECT_PATH}/Elements/5.12/cmake"
 
 # CMake flags
 export CMAKEFLAGS="-DCPACK_REMOVE_SYSTEM_DEPS=ON -DCMAKE_USE_CCACHE=YES -DCMAKE_VERBOSE_MAKEFILE=YES -DELEMENTS_DETACHED_DEBINFO=OFF"
@@ -51,7 +51,11 @@ if [[ $ID != "centos" || $VERSION_ID > 7 ]]; then
     export CMAKEFLAGS="$CMAKEFLAGS -DPYTHON_EXPLICIT_VERSION=3"
 fi
 
+if [[ $DIST == "conda"* ]]; then
+    export CMAKEFLAGS="$CMAKEFLAGS -DINSTALL_DOC=OFF -DUSE_SPHINX=OFF -DBoost_NO_BOOST_CMAKE=ON"
+fi
 
+# RPM
 export RPM_PACKAGER="Alejandro Alvarez Ayllon <aalvarez@fedoraproject.org>"
 
 # Secrets, if any
