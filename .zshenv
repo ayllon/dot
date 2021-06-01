@@ -2,10 +2,10 @@
 ARCH=$(uname -m)
 
 # OS
-OS=$(uname -s)
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 if [[ -n "$CONDA_PREFIX" ]]; then
-    DIST="conda_${OS,,}"
+    DIST="conda_${OS}"
     VERSION_ID=$(conda --version | perl -n -e '/conda (\d+)/ && print $1')
 elif [[ $OS == "Linux" ]]; then
     source /etc/os-release
@@ -52,7 +52,7 @@ if [[ $ID != "centos" || $VERSION_ID > 7 ]]; then
 fi
 
 if [[ $DIST == "conda"* ]]; then
-    export CMAKEFLAGS="$CMAKEFLAGS -DINSTALL_DOC=OFF -DUSE_SPHINX=OFF -DBoost_NO_BOOST_CMAKE=ON"
+    export CMAKEFLAGS="$CMAKEFLAGS -DINSTALL_DOC=OFF -DUSE_SPHINX=OFF -DBoost_NO_BOOST_CMAKE=ON -DCFITSIO_ROOT_DIR=${CONDA_PREFIX}"
 fi
 
 # RPM
