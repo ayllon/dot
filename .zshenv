@@ -42,7 +42,7 @@ fi
 export BINARY_TAG="${ARCH}-${DIST}${VERSION_ID}-${CC_ID}${CC_VERSION}-${BUILD_TYPE}"
 
 # Location of Elements and project
-export CMAKE_PROJECT_PATH=/home/aalvarez/Work/Projects
+export CMAKE_PROJECT_PATH="${HOME}/Work/Projects"
 export CMAKE_PREFIX_PATH="${CMAKE_PROJECT_PATH}/Elements/5.12/cmake"
 
 # CMake flags
