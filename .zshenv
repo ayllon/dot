@@ -7,7 +7,7 @@ OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 if [[ -n "$CONDA_PREFIX" ]]; then
     DIST="conda_${OS}"
     VERSION_ID=$(conda --version | perl -n -e '/conda (\d+)/ && print $1')
-elif [[ $OS == "Linux" ]]; then
+elif [[ $OS == "linux" ]]; then
     source /etc/os-release
 
     if [[ $ID == "fedora" ]]; then
