@@ -128,5 +128,8 @@ webserver() {
     fg
 }
 
-source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+if [ -f ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh ]; then
+    source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
+fi
+
 
