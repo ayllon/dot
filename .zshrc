@@ -98,9 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 JAVA_BIN="/home/aalvarez/Tools/clion/jbr/bin/java"
 if [ ! -f ${JAVA_BIN} ]; then
-    JAVA_BIN=$(which java)
+    JAVA_BIN=$(which java 2> /dev/null)
 fi
-alias topcat="${JAVA_BIN} -jar $HOME/Tools/topcat-full.jar"
+if [ -n "${JAVA_BIN}" ]; then
+    alias topcat="${JAVA_BIN} -jar $HOME/Tools/topcat-full.jar"
+fi
 
 which exa &> /dev/null
 if [[ $? -eq 0 ]]; then
