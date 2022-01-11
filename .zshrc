@@ -134,4 +134,10 @@ if [ -f ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh ]; then
     source ~/.dotfiles/lib/zsh-autoenv/autoenv.zsh
 fi
 
+switch-clang() {
+    export CC="$(which clang)"
+    export CXX="$(which clang++)"
+    source ~/.zshenv
+    echo "Using ${BINARY_TAG}"
+}
 
