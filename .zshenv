@@ -28,22 +28,22 @@ fi
 BUILD_TYPE=${BUILD_TYPE:-dbg}
 
 # Compiler ID and version
-CC=${CC:-gcc}
+CXX=${CXX:-g++}
 
-if [[ $CC == *"clang" ]]; then
-    CC_VERSION=$(${CC} -dumpversion | perl -n -e '/(\d+)\.(\d+)/ && print $1,$2')
-    CC_ID="clang"
+if [[ $CXX == *"clang"* ]]; then
+    CXX_VERSION=$(${CXX} -dumpversion | perl -n -e '/(\d+)\.(\d+)/ && print $1,$2')
+    CXX_ID="clang"
 else
-    CC_VERSION=$(${CC} --version | head -1 | perl -n -e '/(\S+) \((.+)\) (\d+)\.(\d+)\./ && print $3,$4')
-    CC_ID="gcc"
+    CXX_VERSION=$(${CXX} --version | head -1 | perl -n -e '/(\S+) \((.+)\) (\d+)\.(\d+)\./ && print $3,$4')
+    CXX_ID="gcc"
 fi
 
 # Build the binary tag
-export BINARY_TAG="${ARCH}-${DIST}${VERSION_ID}-${CC_ID}${CC_VERSION}-${BUILD_TYPE}"
+export BINARY_TAG="${ARCH}-${DIST}${VERSION_ID}-${CXX_ID}${CXX_VERSION}-${BUILD_TYPE}"
 
 # Location of Elements and project
 export CMAKE_PROJECT_PATH="${HOME}/Work/Projects"
-export CMAKE_PREFIX_PATH="${CMAKE_PROJECT_PATH}/Elements/5.12/cmake"
+export CMAKE_PREFIX_PATH="${CMAKE_PROJECT_PATH}/Elements/6.0.1/cmake"
 
 # CMake flags
 export CMAKEFLAGS="-DCPACK_REMOVE_SYSTEM_DEPS=ON -DCMAKE_USE_CCACHE=YES -DCMAKE_VERBOSE_MAKEFILE=YES -DELEMENTS_DETACHED_DEBINFO=OFF -DCMAKE_SUPPRESS_REGENERATION=ON"
