@@ -1,6 +1,3 @@
-# Architecture
-ARCH=$(uname -m)
-
 # OS
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
@@ -37,6 +34,9 @@ else
     CXX_VERSION=$(${CXX} --version | head -1 | perl -n -e '/(\S+) \((.+)\) (\d+)\.(\d+)\./ && print $3,$4')
     CXX_ID="gcc"
 fi
+
+# Architecture
+ARCH=$($CXX -dumpmachine | cut -d- -f1)
 
 # Build the binary tag
 export BINARY_TAG="${ARCH}-${DIST}${VERSION_ID}-${CXX_ID}${CXX_VERSION}-${BUILD_TYPE}"
