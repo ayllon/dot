@@ -15,8 +15,8 @@ data.location=~/.task
 weekstart=mon
 calendar.holidays=sparse
 
-include ~/.dot/task/holiday.fr-CH.2020.rc
-include ~/.dot/task/holiday.fr-CH.2021.rc
+include ~/.dot/task/holiday.fr-CH.2022.rc
+include ~/.dot/task/holiday.fr-CH.2023.rc
 
 # Color theme (uncomment one to use)
 #include /usr/share/task/light-16.theme
