@@ -4,3 +4,4 @@
 /.idea
 /InstallArea
 sanitizer_suppressions.txt
+sonar-output
