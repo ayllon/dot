@@ -141,3 +141,4 @@ switch-clang() {
     echo "Using ${BINARY_TAG}"
 }
 
+setopt incappendhistory
