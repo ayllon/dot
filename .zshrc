@@ -62,7 +62,6 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
-  taskwarrior
   fzf
 )
 
@@ -142,3 +141,6 @@ switch-clang() {
 }
 
 setopt incappendhistory
+
+source /etc/zsh_command_not_found
+

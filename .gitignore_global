@@ -1,7 +1,11 @@
 .autoenv.zsh
 .project
 .pytest_cache
+.scannerwork
 /.idea
 /InstallArea
+cmake-build-*
+gradle/
+gradlew*
 sanitizer_suppressions.txt
 sonar-output
