@@ -1,0 +1,28 @@
+#!/bin/bash
+
+function up_to_date() {
+    diff=($(git rev-list --left-right --count $1...$2 | tr '\t' ' '))
+    ahead=${diff[0]}
+    behind=${diff[1]}
+    if [[ $behind -gt 0 ]]; then
+        echo "Branch $1 is $behind commits behind $2!"
+        exit 1
+    fi
+    if [[ $3 == "strict" && $ahead -gt 0 ]]; then
+        echo "Branch $1 is $ahead commits ahead $2!"
+        exit 1
+    fi
+    echo "Branch $1 up to date with $2"
+}
+
+#git fetch
+
+ref=$(git symbolic-ref --quiet HEAD)
+ref=${ref#refs/heads/}
+
+up_to_date "$ref" "origin/$ref" strict
+up_to_date "$ref" "origin/master"
+
+dogfood_branch="dogfood/${ref}"
+git checkout -b "${dogfood_branch}"
+
