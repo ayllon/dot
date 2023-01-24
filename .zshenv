@@ -11,8 +11,8 @@ source "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh"
 source ~/.tokens
 
 # Compiler
-export CXX=$(which g++-11)
-export CC=$(which gcc-11)
+export CXX=$(which clang++-15)
+export CC=$(which clang-15)
 
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
