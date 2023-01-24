@@ -1,4 +1,6 @@
+*.cache
 .autoenv.zsh
+.clang-format
 .project
 .pytest_cache
 .scannerwork
