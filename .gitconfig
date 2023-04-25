@@ -1,16 +1,14 @@
 [user]
-	email = a.alvarezayllon@gmail.com
-	name = Alejandro Alvarez Ayllon
-	signingkey = 365331022C31EEF0
-[credential]
-	helper = "!f() { echo -e \"username=${GIT_USER}\\npassword=${GIT_TOKEN}\"; }; f"
+	name = Alejandro Álvarez Ayllón
+	email = alejandro.alvarez@sonarsource.com
 [core]
-	pager = less -F -X
-	excludesfile = /home/aalvarez/.gitignore_global
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-[pull]
-	rebase = true
+	pager = less -FRX
+	excludesFile = /home/alejandro.alvarez/.gitignore_global
+[push]
+	useForceIfIncludes = true
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[init]
+	defaultBranch = master
+[rebase]
+	updateRefs = true
