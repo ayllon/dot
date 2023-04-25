@@ -4,8 +4,10 @@
 .project
 .pytest_cache
 .scannerwork
+.vscode
 /.idea
 /InstallArea
+__pycache__
 cmake-build-*
 gradle/
 gradlew*

@@ -2,10 +2,8 @@
 	email = a.alvarezayllon@gmail.com
 	name = Alejandro Alvarez Ayllon
 	signingkey = 365331022C31EEF0
-[credential]
-	helper = "!f() { echo -e \"username=${GIT_USER}\\npassword=${GIT_TOKEN}\"; }; f"
 [core]
-	pager = less -F -X
+	pager = less -FRX
 	excludesfile = /home/aalvarez/.gitignore_global
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -14,3 +12,11 @@
 	required = true
 [pull]
 	rebase = true
+[push]
+	useForceIfIncludes = true
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[init]
+	defaultBranch = main
+[rebase]
+	updateRefs = true
