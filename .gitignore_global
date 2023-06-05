@@ -1,11 +1,11 @@
 *.cache
 .autoenv.zsh
 .clang-format
+.idea
 .project
 .pytest_cache
 .scannerwork
 .vscode
-/.idea
 /InstallArea
 __pycache__
 cmake-build-*
