@@ -12,3 +12,6 @@
 	defaultBranch = master
 [rebase]
 	updateRefs = true
+	autoStash = true
+[pull]
+	rebase = true
