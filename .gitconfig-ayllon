@@ -1,0 +1,6 @@
+[user]
+    name = Alejandro Álvarez Ayllón
+    email = a.alvarezayllon@gmail.com
+
+[core]
+    sshCommand = ssh -i /home/alejandro.alvarez/.ssh/ayllon_rsa
