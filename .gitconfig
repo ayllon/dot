@@ -4,6 +4,7 @@
 [core]
 	pager = less -FRX
 	excludesFile = /home/alejandro.alvarez/.gitignore_global
+	autocrlf = input
 [push]
 	useForceIfIncludes = true
 [url "https://github.com/"]
@@ -17,3 +18,5 @@
 	rebase = true
 [includeIf "hasconfig:remote.*.url:git@github.com:ayllon/**"]
     path = /home/alejandro.alvarez/.gitconfig-ayllon
+[rerere]
+	enabled = true
