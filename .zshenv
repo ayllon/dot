@@ -5,7 +5,9 @@ export EDITOR=vim
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/source/repos/scripts/"
 
 # sdkman
-source "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh"
+if [ -f "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh" ]; then
+    source "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh"
+fi
 
 # Tokens
 source ~/.tokens

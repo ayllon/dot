@@ -142,7 +142,9 @@ switch-clang() {
 
 setopt incappendhistory
 
-source /etc/zsh_command_not_found
+if [ -f /etc/zsh_command_not_found ]; then
+    source /etc/zsh_command_not_found
+fi
 
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/Sonar-FGT-FW-TLS-Traffic-Inspection.pem
 
