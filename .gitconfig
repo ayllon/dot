@@ -7,6 +7,7 @@
 	autocrlf = input
 [push]
 	useForceIfIncludes = true
+	autoSetupRemote = on
 [url "https://github.com/"]
 	insteadOf = git://github.com/
 [init]
