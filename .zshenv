@@ -10,11 +10,19 @@ if [ -f "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh" ]; then
 fi
 
 # Tokens
-source ~/.tokens
+if [ -f ~/.tokens ]; then
+    source ~/.tokens
+fi
 
 # Compiler
-export CXX=$(which clang++)
-export CC=$(which clang)
+CLANGPP=$(which clang++ 2> /dev/null)
+if [ $? -eq 0 ]; then
+    export CXX="${CLANGPP}"
+fi
+CLANG=$(which clang 2> /dev/null)
+if [ $? -eq 0 ]; then
+    export CC="${CLANG}"
+fi
 
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
@@ -23,4 +31,6 @@ export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
 export VERBOSE=1
 
 # Rust
-. "$HOME/.cargo/env"
+if [ -f "${HOME}/.cargo/env" ]; then
+    . "${HOME}/.cargo/env"
+fi
