@@ -146,8 +146,6 @@ if [ -f /etc/zsh_command_not_found ]; then
     source /etc/zsh_command_not_found
 fi
 
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/Sonar-FGT-FW-TLS-Traffic-Inspection.pem
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
