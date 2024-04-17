@@ -6,6 +6,7 @@
 .pytest_cache
 .scannerwork
 .vscode
+.z3-trace
 /InstallArea
 __pycache__
 cmake-build-*
