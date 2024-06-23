@@ -15,6 +15,7 @@
 	rebase = true
 [push]
 	useForceIfIncludes = true
+	autoSetupRemote = true
 [url "https://github.com/"]
 	insteadOf = git://github.com/
 [init]
