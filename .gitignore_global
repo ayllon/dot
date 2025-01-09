@@ -1,7 +1,9 @@
 *.cache
+*.hsw
+*.reproducer
 .autoenv.zsh
-.clang-format
 .idea
+.idea/codeStyles/Project.xml
 .project
 .pytest_cache
 .scannerwork
@@ -9,8 +11,14 @@
 .z3-trace
 /InstallArea
 __pycache__
+build-wrapper-dump.json
+build-wrapper.log
 cmake-build-*
+cmake-linux-*
+compile_commands.json
 gradle/
 gradlew*
+main.cpp.csa-inca-cache
 sanitizer_suppressions.txt
+sonar-cfamily-reproducers.yaml
 sonar-output
