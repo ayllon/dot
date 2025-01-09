@@ -21,3 +21,8 @@
     path = /home/alejandro.alvarez/.gitconfig-ayllon
 [rerere]
 	enabled = true
+[clangformat]
+	binary = /home/alejandro.alvarez/source/repos/sonar-cpp/toolchain/build/llvm-install/bin/clang-format
+[credential]
+	helper = store
+
