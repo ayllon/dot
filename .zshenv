@@ -2,7 +2,7 @@
 export EDITOR=vim
 
 # Add .local/bin and scripts to the PATH
-export PATH="${PATH}:${HOME}/.local/bin:${HOME}/source/repos/scripts/"
+export PATH="${HOME}/.local/bin:${HOME}/projects/scripts/:${PATH}"
 
 # sdkman
 source "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh"
@@ -11,8 +11,8 @@ source "/home/alejandro.alvarez/.sdkman/bin/sdkman-init.sh"
 source ~/.tokens
 
 # Compiler
-export CXX=$(which clang++)
-export CC=$(which clang)
+export CXX=$(which clang++-18)
+export CC=$(which clang-18)
 
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
