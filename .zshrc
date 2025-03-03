@@ -63,6 +63,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
   fzf
+  direnv
 )
 
 source $ZSH/oh-my-zsh.sh
