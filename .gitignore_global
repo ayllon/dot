@@ -1,12 +1,15 @@
 *.cache
 *.hsw
 *.reproducer
+*.swp
 .autoenv.zsh
+.envrc
 .idea
 .idea/codeStyles/Project.xml
 .project
 .pytest_cache
 .scannerwork
+.venv
 .vscode
 .z3-trace
 /InstallArea
@@ -16,6 +19,7 @@ build-wrapper.log
 cmake-build-*
 cmake-linux-*
 compile_commands.json
+copilot-instructions.md
 gradle/
 gradlew*
 main.cpp.csa-inca-cache
