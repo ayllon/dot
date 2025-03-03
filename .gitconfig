@@ -22,7 +22,7 @@
 [rerere]
 	enabled = true
 [clangformat]
-	binary = /home/alejandro.alvarez/source/repos/sonar-cpp/toolchain/build/llvm-install/bin/clang-format
+	binary = /home/alejandro.alvarez/projects/cfamily/sonar-cpp/build/linux-asserted-release-from-sources/llvm-project/bin/clang-format
 [credential]
 	helper = store
 
