@@ -13,6 +13,7 @@
 .vscode
 .z3-trace
 /InstallArea
+CLAUDE.md
 __pycache__
 build-wrapper-dump.json
 build-wrapper.log
@@ -26,3 +27,4 @@ main.cpp.csa-inca-cache
 sanitizer_suppressions.txt
 sonar-cfamily-reproducers.yaml
 sonar-output
+.claude
