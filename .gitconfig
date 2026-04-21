@@ -15,6 +15,7 @@
 [rebase]
 	updateRefs = true
 	autoStash = true
+	updateRefs = true
 [pull]
 	rebase = true
 [includeIf "hasconfig:remote.*.url:git@github.com:ayllon/**"]
@@ -26,3 +27,16 @@
 [credential]
 	helper = store
 
+[pack]
+	windowMemory = 256m
+[url "ssh://git@github.com/SonarSource/sonar-secrets-pre-commit"]
+	insteadOf = https://github.com/SonarSource/sonar-secrets-pre-commit
+[url "ssh://git@github.com:SonarSource/llvm-project.git"]
+    insteadOf = https://github.com/SonarSource/llvm-project
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[url "git@github.com:sonarsource/"]
+	insteadOf = https://github.com/SonarSource/
