@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sonar Issue Check"
+  short_description: "Check Sonar issues with branch/PR context"
+  default_prompt: "Use this skill to check Sonar issues for the current project, resolving branch or PR context from the active git branch and validating sonar property files first."
