@@ -15,10 +15,12 @@ export CXX=$(which clang++-20)
 export CC=$(which clang-20)
 
 # Java
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64/
 
 # Verbose cmake
 export VERBOSE=1
+
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/Sonar-CloudFlare-Inspection-Cert.pem
 
 # Rust
 . "$HOME/.cargo/env"
