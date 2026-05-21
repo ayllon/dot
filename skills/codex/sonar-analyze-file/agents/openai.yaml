@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sonar Analyze File"
+  short_description: "Analyze a file with Sonar SQAA"
+  default_prompt: "Use $sonar-analyze-file to analyze a source file with Sonar and report relevant function complexity."
